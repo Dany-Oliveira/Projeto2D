@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Door
+  - Shelf
+  - PredefinedBook1
+  - RandomBook
+  - CloseBook
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - BookshelfOpen
+  - Book
+  - PredefinedBook
+  - BookOpen
+  - CloseBookBtn
+  - Books
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4066470109
+    locked: 0
+  - name: Background 2
+    uniqueID: 451610563
+    locked: 0
+  - name: Player
+    uniqueID: 2476684593
+    locked: 0
+  - name: Popup
+    uniqueID: 344258045
+    locked: 0
+  - name: BookshelfOpen
+    uniqueID: 2276444685
+    locked: 0
+  - name: UI
+    uniqueID: 1386945797
+    locked: 0
+  - name: BookOpen
+    uniqueID: 723868227
+    locked: 0
+  - name: CloseBookBtn
+    uniqueID: 1910186035
+    locked: 0

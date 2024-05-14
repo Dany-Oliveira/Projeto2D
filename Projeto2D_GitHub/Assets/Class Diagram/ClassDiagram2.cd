@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PlayerControler" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACEiAAIAAEAAAAAgAAAAAAAAAAAQAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\PlayerControler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Popups" Collapsed="true">
+    <Position X="2.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAASAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Popups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doors" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Doors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAIQAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenBookshelf" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAQAAACAAABAAAAAAAAAAAAAAAACAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\OpenBookshelf.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenPredefineBook" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABEAACAAAAAAQAAAAAAAAAgAAAAAAQAAAAABAAAEA=</HashCode>
+      <FileName>Assets\Scripts\OpenPredefineBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenRandomBook" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAACACAgACAgggECQCAgAgAAAAAAAAAAUAoICEA=</HashCode>
+      <FileName>Assets\Scripts\OpenRandomBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerChangeMap" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAASAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerChangeMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookClickControler" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAQQAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\BookClickControler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
