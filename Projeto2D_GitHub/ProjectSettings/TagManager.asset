@@ -22,7 +22,7 @@ TagManager:
   - BookOpen
   - CloseBookBtn
   - Books
-  - 
+  - Fountain
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Background 2
     uniqueID: 451610563
+    locked: 0
+  - name: Fountain
+    uniqueID: 588861499
     locked: 0
   - name: Player
     uniqueID: 2476684593
