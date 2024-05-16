@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance;
+    public static DialogueManager Instance;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
@@ -16,24 +15,28 @@ public class DialogueManager : MonoBehaviour
     private Queue<DialogueLine> lines;
 
     public bool isDialogueActive = false;
-    public float typingSpeed = 0.2f;
-    public Animator animator;
 
-    public void Start()
+    public float typingSpeed = 0.2f;
+
+    //public Animator animator;
+
+    private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+        if (Instance == null)
+            Instance = this;
+
+        lines = new Queue<DialogueLine>();
     }
 
-    public void StarDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
-        animator.Play("show");
+
+        //animator.Play("show");
+
         lines.Clear();
 
-        foreach(DialogueLine dialogueLine in dialogue.dialogueLines) 
+        foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
         {
             lines.Enqueue(dialogueLine);
         }
@@ -57,7 +60,6 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
 
         StartCoroutine(TypeSentence(currentLine));
-
     }
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
@@ -73,8 +75,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
-        animator.Play("hide");
+        //animator.Play("hide");
     }
 }
-
-

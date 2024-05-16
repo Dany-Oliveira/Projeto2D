@@ -67,6 +67,12 @@ TagManager:
   - name: UI
     uniqueID: 1386945797
     locked: 0
+  - name: Dialogue Box
+    uniqueID: 1997081245
+    locked: 0
+  - name: Dialogue Text
+    uniqueID: 762964299
+    locked: 0
   - name: BookOpen
     uniqueID: 723868227
     locked: 0

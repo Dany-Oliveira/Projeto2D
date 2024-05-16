@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,8 @@ public class DialogueCharacter
 public class DialogueLine
 {
     public DialogueCharacter character;
-    [TextArea(3, 10)] public string line;
+    [TextArea(3, 10)]
+    public string line;
 }
 
 [System.Serializable]
@@ -24,30 +24,33 @@ public class Dialogue
 
 public class DialogueTrigger : MonoBehaviour
 {
-
     public Dialogue dialogue;
     private bool canInteract = false;
 
     private void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             TriggerDialogue();
         }
     }
+
     public void TriggerDialogue()
     {
-        DialogueManager.instance.StarDialogue(dialogue);
+        DialogueManager.Instance.StartDialogue(dialogue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        canInteract = true;
+        if (collision.CompareTag("Player"))
+        {
+            canInteract = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         canInteract = false;
     }
-
 }
+
