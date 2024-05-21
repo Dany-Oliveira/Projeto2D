@@ -3,34 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OpenBookshelf : MonoBehaviour
+public class OpenBookshelf : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private GameObject bookshelfMenu;
     [SerializeField] private GameObject player;
-    private bool canInteract = false;
+    private PlayerControler playerControler;
+
+    private PlayerInput customInput;
 
     private void Awake()
     {
+        playerControler = FindObjectOfType<PlayerControler>();
         bookshelfMenu.SetActive(false);
     }
-
-    private void Update()
+   
+    public void Interact()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canInteract == true)
+        bookshelfMenu.SetActive(true);
+        player.GetComponent<PlayerControler>().enabled = false;
+    
+        //customInput.Player.Move.Disable(); Nao funciona
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-            bookshelfMenu.SetActive(true);
-            player.GetComponent<PlayerControler>().enabled = false;
+            other.GetComponent<InteractionSystem>().SetInteractable(this);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        canInteract = true;
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<InteractionSystem>().SetInteractable(null);
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        canInteract = false;
-    }
 }

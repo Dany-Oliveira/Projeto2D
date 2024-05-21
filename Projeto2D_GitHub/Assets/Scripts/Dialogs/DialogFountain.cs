@@ -3,28 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
 
-public class DialogFountain : MonoBehaviour
+public class DialogFountain : MonoBehaviour, IInteractable
 {
    
     [SerializeField] DialogManager dialogManager;
     [SerializeField] GameObject dialogManagerGameObject;
 
     private List<DialogData> dialogTexts;
-    private bool canInteract = false;
  
     private void Awake()
     {
         dialogManagerGameObject.SetActive(false);     
     }
 
-    private void Update()
+  
+    /// INTERACTION
+    public void Interact()
     {
-        if(canInteract && Input.GetKeyDown(KeyCode.E))
+        StartDialog();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-           StartDialog();
+            other.GetComponent<InteractionSystem>().SetInteractable(this);
         }
     }
-     private void StartDialog()
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<InteractionSystem>().SetInteractable(null);
+        }
+    }
+
+
+    /// DIALOG
+    private void StartDialog()
     {
         ActivateDialogBox();
         InsertDialogInList();
@@ -73,16 +90,6 @@ public class DialogFountain : MonoBehaviour
         }
       
        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        canInteract = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        canInteract = false;
     }
 
 }

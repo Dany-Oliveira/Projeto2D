@@ -27,10 +27,11 @@ public class BookClickControler : MonoBehaviour
 
         if (!rayHit.collider) return;
 
-        print(rayHit.collider.tag + " " +rayHit.collider.gameObject.name);
+        // print(rayHit.collider.tag + " " +rayHit.collider.gameObject.name);//DEBUG
+
         if (rayHit.collider.CompareTag("PredefinedBook1"))
         {
-            Debug.Log("Livro Predefinido");
+            //Debug.Log("Livro Predefinido");//DEBUG
             _openPredefineBook.OpenPredefinedBook();
             return;
         }
