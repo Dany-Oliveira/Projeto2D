@@ -33,6 +33,7 @@ namespace Doublsb.Dialog
 {
     public class DialogManager : MonoBehaviour
     {
+
         //================================================
         //Public Variable
         //================================================
@@ -71,6 +72,13 @@ namespace Doublsb.Dialog
         private float _lastDelay;
         private Coroutine _textingRoutine;
         private Coroutine _printingRoutine;
+
+        private PlayerInput customInput;
+
+        private void Start()
+        {
+            customInput = InputManager.Instance.GetInputActions();
+        }
 
         //================================================
         //Public Method
@@ -115,6 +123,9 @@ namespace Doublsb.Dialog
             Printer.SetActive(false);
             Characters.SetActive(false);
             Selector.SetActive(false);
+
+            customInput.Player.Move.Enable();
+            customInput.Player.Interact.Enable();
 
             state = State.Deactivate;
 

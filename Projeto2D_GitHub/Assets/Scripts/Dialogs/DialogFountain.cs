@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
+using Unity.VisualScripting;
 
 public class DialogFountain : MonoBehaviour, IInteractable
 {
@@ -10,13 +11,23 @@ public class DialogFountain : MonoBehaviour, IInteractable
     [SerializeField] GameObject dialogManagerGameObject;
 
     private List<DialogData> dialogTexts;
+    private PlayerInput customInput;
  
     private void Awake()
     {
         dialogManagerGameObject.SetActive(false);     
     }
 
-  
+    private void Start()
+    {
+        customInput = InputManager.Instance.GetInputActions();
+    }
+
+    private void Update()
+    {
+        
+    }
+
     /// INTERACTION
     public void Interact()
     {
@@ -51,6 +62,8 @@ public class DialogFountain : MonoBehaviour, IInteractable
     private void ActivateDialogBox()
     {
        dialogManagerGameObject.SetActive(true);
+       customInput.Player.Interact.Disable();
+       customInput.Player.Move.Disable();   
     }
 
     private void InsertDialogInList()
@@ -91,5 +104,4 @@ public class DialogFountain : MonoBehaviour, IInteractable
       
        
     }
-
 }
