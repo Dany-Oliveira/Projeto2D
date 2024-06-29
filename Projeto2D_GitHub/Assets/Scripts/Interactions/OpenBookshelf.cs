@@ -12,8 +12,7 @@ public class OpenBookshelf : MonoBehaviour, IInteractable
     private PlayerInput customInput;
 
     private void Awake()
-    {
-        
+    {       
         bookshelfMenu.SetActive(false);
     }
 
