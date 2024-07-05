@@ -9,6 +9,7 @@ TagManager:
   - PredefinedBook1
   - RandomBook
   - CloseBook
+  - StartingLetter
   layers:
   - Default
   - TransparentFX
@@ -61,17 +62,17 @@ TagManager:
   - name: Popup
     uniqueID: 344258045
     locked: 0
-  - name: BookshelfOpen
-    uniqueID: 2276444685
-    locked: 0
-  - name: UI
-    uniqueID: 1386945797
-    locked: 0
   - name: Dialogue Box
     uniqueID: 1997081245
     locked: 0
   - name: Dialogue Text
     uniqueID: 762964299
+    locked: 0
+  - name: UI
+    uniqueID: 1386945797
+    locked: 0
+  - name: BookshelfOpen
+    uniqueID: 2276444685
     locked: 0
   - name: BookOpen
     uniqueID: 723868227

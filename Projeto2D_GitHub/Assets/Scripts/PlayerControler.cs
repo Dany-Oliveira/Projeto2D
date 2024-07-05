@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
@@ -8,8 +9,10 @@ public class PlayerControler : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private PlayerInput customInput;
+    private bool canMove = true;
 
     [SerializeField] private float moveSpeed = 1f;
+
 
     private void Awake()
     {
@@ -42,5 +45,19 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed); 
+    }
+
+    public void ToggleMovement()
+    {      
+        if (canMove)
+        {
+            customInput.Player.Move.Disable();
+            canMove = false;            
+        }
+        else
+        {
+            customInput.Player.Move.Enable();
+            canMove = true;     
+        }
     }
 }

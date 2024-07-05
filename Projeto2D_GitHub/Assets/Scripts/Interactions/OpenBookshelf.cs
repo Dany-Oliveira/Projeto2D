@@ -3,44 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OpenBookshelf : MonoBehaviour, IInteractable
+public class OpenBookshelf : InteractionBookshelfLetter
 {
-
-    [SerializeField] private GameObject bookshelfMenu;
-    [SerializeField] private GameObject player;
-  
-    private PlayerInput customInput;
-
+    [field: SerializeField] public string Id { get; private set; }
+   
     private void Awake()
-    {       
-        bookshelfMenu.SetActive(false);
+    {
+        objectToOpen.SetActive(false);
     }
 
-    private void Start()
+    protected override void InteractWithObject()
     {
-        customInput = InputManager.Instance.GetInputActions();
+        CheckObject();
     }
 
-    public void Interact()
+    private void CheckObject()
     {
-        bookshelfMenu.SetActive(true);
-        customInput.Player.Move.Disable(); 
-    }
+        var questManager = QuestManager.Instance;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (questManager.CheckQuestState())
         {
-            other.GetComponent<InteractionSystem>().SetInteractable(this);
+            if(questManager.shelfId.Contains(Id))
+            {
+                questManager.StoreBookOnShelf(Id);
+            }
+            else
+            {
+                gameObject.GetComponent<DialogCantInteract>().StartDialog();
+            }
+
+        }
+        else
+        {
+            playerControler.ToggleMovement();
+            objectToOpen.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<InteractionSystem>().SetInteractable(null);
-        }
-    }
-
+   
 }

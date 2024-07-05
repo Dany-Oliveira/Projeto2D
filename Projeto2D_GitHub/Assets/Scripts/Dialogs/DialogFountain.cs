@@ -3,67 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Doublsb.Dialog;
 using Unity.VisualScripting;
+using System;
+using System.Runtime.CompilerServices;
 
-public class DialogFountain : MonoBehaviour, IInteractable
+public class DialogFountain : DialogBase
 {
-   
-    [SerializeField] DialogManager dialogManager;
-    [SerializeField] GameObject dialogManagerGameObject;
-
-    private List<DialogData> dialogTexts;
-    private PlayerInput customInput;
- 
-    private void Awake()
-    {
-        dialogManagerGameObject.SetActive(false);     
-    }
-
-    private void Start()
-    {
-        customInput = InputManager.Instance.GetInputActions();
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    /// INTERACTION
-    public void Interact()
-    {
-        StartDialog();
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<InteractionSystem>().SetInteractable(this);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<InteractionSystem>().SetInteractable(null);
-        }
-    }
-
-
-    /// DIALOG
-    private void StartDialog()
+    public override void StartDialog()
     {
         ActivateDialogBox();
         InsertDialogInList();
         dialogManager.Show(dialogTexts);
-    }
-
-    private void ActivateDialogBox()
-    {
-       dialogManagerGameObject.SetActive(true);
-       customInput.Player.Interact.Disable();
-       customInput.Player.Move.Disable();   
     }
 
     private void InsertDialogInList()
@@ -79,29 +28,44 @@ public class DialogFountain : MonoBehaviour, IInteractable
 
         Pergunta.Callback = () => CheckPergunta();
         dialogTexts.Add(Pergunta);
+
+        if (BookManager.Instance.HasBook("2-3-3-1-7"))
+        {
+            Pergunta.SelectList.Add("Pergunta 4", "encontrei o livro ");
+        }
     }
 
     private void CheckPergunta()
     {
-        if(dialogManager.Result == "Pergunta 1")
+
+        switch(dialogManager.Result)
         {
-            dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("Na Library of Babel!"));
-            dialogManager.Show(dialogTexts);
+            case ("Pergunta 1"):
+                dialogTexts = new List<DialogData>();
+                dialogTexts.Add(new DialogData("Na Library of Babel!"));
+                dialogManager.Show(dialogTexts);
+                break;
+
+            case ("Pergunta 2"):
+                dialogTexts = new List<DialogData>();
+                dialogTexts.Add(new DialogData("O teu nome é Hermes"));
+                dialogManager.Show(dialogTexts);
+                break;
+
+            case ("Pergunta 3"):
+                dialogTexts = new List<DialogData>();
+                dialogTexts.Add(new DialogData("Eu sou uma fonte mágica"));
+                dialogManager.Show(dialogTexts);
+                break;
+
+            case ("Pergunta 4"):
+                dialogTexts = new List<DialogData>();
+                dialogTexts.Add(new DialogData("encontraste o livro"));
+                dialogManager.Show(dialogTexts);
+                break;
         }
-        else if(dialogManager.Result == "Pergunta 2")
-        {
-            dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("O teu nome é Hermes"));
-            dialogManager.Show(dialogTexts);
-        }
-        else
-        {
-            dialogTexts = new List<DialogData>();
-            dialogTexts.Add(new DialogData("Eu sou uma fonte mágica"));
-            dialogManager.Show(dialogTexts);
-        }
-      
        
     }
+
+ 
 }
