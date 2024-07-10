@@ -33,7 +33,6 @@ public class QuestManager : MonoBehaviour
     {
         for(int i = 0; i < shelfId.Count; i++)
         {
-            print(shelfId[i]);
             booksDelivered.Add(shelfId[i], false);
         }
     }
@@ -41,11 +40,13 @@ public class QuestManager : MonoBehaviour
     public void StartQuest()
     {
         questActive = true;
+        GameManager.Instance.SetTextToQuest(shelfId);
     }
 
     public void EndQuest()
     {
         questActive = false;
+        GameManager.Instance.SetTextToEndQuest();
     }
 
     public bool CheckQuestState()
@@ -55,8 +56,6 @@ public class QuestManager : MonoBehaviour
 
     public void StoreBookOnShelf(string shelf)
     {
-        print("id estante "+shelf);
-
         if (shelfId.Contains(shelf))
         {
             if (booksDelivered.ContainsKey(shelf))
@@ -73,6 +72,18 @@ public class QuestManager : MonoBehaviour
         {
             print("The list doesnt have that string");
         }
+    }
+
+    public bool CheckIfAllBooksHaveBeenDelivered()
+    {
+        foreach(bool value in booksDelivered.Values)
+        {
+            if (!value)
+            {
+                return false;
+            }
+        }    
+        return true;
     }
 
 }

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractFountain : InteractionBase
 {
-    public bool canInteractFountain { get; private set; } = false;
+    [SerializeField] private bool canInteractFountain = false;
     public override void Interact()
     {
         if (canInteractFountain)
@@ -18,16 +19,14 @@ public class InteractFountain : InteractionBase
 
     }
 
-    public void ToggleFountainInteraction()
+    public void EnableFountainInteraction()
     {
-        if(canInteractFountain)
-        {
-            canInteractFountain = false;
-        }
-        else
-        {
-            canInteractFountain = true;
-        }
+        canInteractFountain = true;
+    }
+
+    public void DisableFountainInteraction()
+    {
+        canInteractFountain = false ;
     }
     
 }

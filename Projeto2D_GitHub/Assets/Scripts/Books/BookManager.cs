@@ -6,8 +6,9 @@ using UnityEngine.Events;
 
 public class BookManager : MonoBehaviour
 {
-
-    public List<string> UnlockedBooks {  get; private set; }
+    //a list for the books that player opened and unlock new dialog
+    [field: SerializeField] public List<string> UnlockedBooks {  get; private set; }
+    [field: SerializeField] public List<string> AllBooksToUnlock { get; private set; }
 
     public static BookManager Instance { get; private set; }
 

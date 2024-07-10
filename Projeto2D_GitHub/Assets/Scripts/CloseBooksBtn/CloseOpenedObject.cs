@@ -8,7 +8,6 @@ public class CloseOpenedObject : MonoBehaviour
     [SerializeField] private GameObject objectToClose;
     private PlayerControler playerControler;
 
-
     private void Awake()
     {
         playerControler = FindObjectOfType<PlayerControler>();
