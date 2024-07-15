@@ -41,6 +41,7 @@ public class OpenBookshelf : InteractionBookshelfLetter
         {
             playerControler.ToggleMovement();
             objectToOpen.SetActive(true);
+            AudioManager.Instance.PlayOpenBookshelf();
         }
     }
 

@@ -8,11 +8,8 @@ public class BookManager : MonoBehaviour
 {
     //a list for the books that player opened and unlock new dialog
     [field: SerializeField] public List<string> UnlockedBooks {  get; private set; }
-    [field: SerializeField] public List<string> AllBooksToUnlock { get; private set; }
 
     public static BookManager Instance { get; private set; }
-
-    public UnityEvent<string> OnBookRevealed {  get; private set; }
 
     private void Awake()
     {
@@ -41,9 +38,4 @@ public class BookManager : MonoBehaviour
         return UnlockedBooks.Contains(id);
     }
     
-    public void RevealBook(string id)
-    {
-        OnBookRevealed?.Invoke(id);
-    }
-
 }

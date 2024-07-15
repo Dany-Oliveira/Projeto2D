@@ -18,7 +18,6 @@ public class QuestManager : MonoBehaviour
     private Dictionary<string, bool> booksDelivered;
 
     [SerializeField] private GameObject finalScreen;
-    [SerializeField] private GameObject player;
 
     private void Awake()
     {
