@@ -35,6 +35,15 @@ public class Doors : MonoBehaviour, IInteractable
         if (currentDoor != null)
         {
             player.transform.position = destination.position;
+            if (gameObject.CompareTag("Ladder"))
+            {
+                AudioManager.Instance.PlayLadder();
+            }
+            else
+            {
+                AudioManager.Instance.PlayOpenDoor();
+            }
+            
         }
     }
 

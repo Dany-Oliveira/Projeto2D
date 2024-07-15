@@ -10,6 +10,7 @@ TagManager:
   - RandomBook
   - CloseBook
   - StartingLetter
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -79,4 +80,7 @@ TagManager:
     locked: 0
   - name: CloseBookBtn
     uniqueID: 1910186035
+    locked: 0
+  - name: 'Final '
+    uniqueID: 4109388579
     locked: 0

@@ -64,4 +64,14 @@ public class GameManager : MonoBehaviour
     {
         textUI.text = "Talk to the fountain";
     }
+
+    public void GetCandle()
+    {
+        textUI.text = "Go get the candle";
+    }
+
+    public void SetTextToBurnBookshelf()
+    {
+        textUI.text = "Lit a fire in a bookshelf";
+    }
 }

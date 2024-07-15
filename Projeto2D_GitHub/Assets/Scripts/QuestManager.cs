@@ -7,13 +7,18 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance { get; private set; }
-    private bool questActive;
+    private bool questActive = false;
+    private bool finalQuestActive = false;
+    private bool hasCandle = false;
 
     //this will store the the shelfs that the player needs to "store" the books from the office
     [field: SerializeField] public List<string> shelfId { get; private set; }
 
     //this will store a bool, to se if the player interacted with the shelf with the specific id
     private Dictionary<string, bool> booksDelivered;
+
+    [SerializeField] private GameObject finalScreen;
+    [SerializeField] private GameObject player;
 
     private void Awake()
     {
@@ -65,7 +70,7 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
-                print("The disctionary doesnt have that key");
+                print("The dictionary doesnt have that key");
             }
         }
         else
@@ -84,6 +89,33 @@ public class QuestManager : MonoBehaviour
             }
         }    
         return true;
+    }
+
+    ///////////////////Final Quest////////////////////
+
+    public void StartFinalQuest()
+    {
+        finalQuestActive = true;
+    }
+
+    public bool FinalQuestState()
+    {
+        return finalQuestActive;
+    }
+
+    public void PickUpCandle()
+    {
+        hasCandle = true;
+    }
+
+    public bool HasCandle()
+    {
+        return hasCandle;
+    }
+
+    public void StartFinalScene()
+    {
+        finalScreen.GetComponent<FinalScreen>().ActivateFinalScreen();      
     }
 
 }

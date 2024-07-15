@@ -8,6 +8,7 @@ public class OpenLetter : InteractionBookshelfLetter
     {
         objectToOpen.SetActive(true);
         playerControler.ToggleMovement();
+        AudioManager.Instance.PlayOpenLetter();
     }
 
 }

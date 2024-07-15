@@ -26,12 +26,16 @@ public class OpenBookshelf : InteractionBookshelfLetter
             if(questManager.shelfId.Contains(Id))
             {
                 questManager.StoreBookOnShelf(Id);
-            }
+            }     
             else
             {
                 gameObject.GetComponent<DialogCantInteract>().StartDialog();
             }
 
+        }
+        else if (questManager.HasCandle())
+        {
+            gameObject.GetComponent<DialogBurnBookshelf>().StartDialog();
         }
         else
         {

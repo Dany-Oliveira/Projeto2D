@@ -8,6 +8,5 @@ public class InteractExitDoor : InteractionBase
     public override void Interact()
     {
         gameObject.GetComponent<DialogExitDoor>().StartDialog();
-
     }
 }

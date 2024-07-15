@@ -8,26 +8,9 @@ public class Book : MonoBehaviour
     [field: SerializeField] public string Id {  get; private set; }
     [field: SerializeField] public bool Hidden { get; private set; } = false;
 
-    //update scripted execution order so bookmanager runs before book
-    /*private void Awake()
-    {
-        if (Hidden)
-        {
-            BookManager.Instance.OnBookRevealed.AddListener(OnBookRevealed);
-        }     
-    }*/
-
-
-    //Called by button event
     public void OnBookOpen()
     {
-       /* if (Hidden)
-        {
-            return;
-        }*/
-
         BookManager.Instance.Unlock(Id);
-        print("book id: " + Id);
     }
 
     private void OnBookRevealed(string id)

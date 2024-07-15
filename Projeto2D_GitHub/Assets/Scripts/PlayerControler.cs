@@ -22,10 +22,11 @@ public class PlayerControler : MonoBehaviour
     }
 
     private void Start()
-    {
+    { 
         customInput = InputManager.Instance.GetInputActions();
         customInput.Player.Move.performed += Move_performed;
         customInput.Player.Move.canceled += Move_canceled;
+        ToggleMovement();
     }
 
     private void OnDestroy()
